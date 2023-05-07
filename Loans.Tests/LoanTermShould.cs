@@ -5,10 +5,11 @@ using System.Collections.Generic;
 
 namespace Loans.Tests
 {
-    [TestFixture]
+    //[Ignore("Need to complete update work.")]
     public class LoanTermShould
     {
         [Test]
+        //[Ignore("Need to complete update work.")]
         public void ReturnTermInMonths()
         {
             var sut = new LoanTerm(1);
