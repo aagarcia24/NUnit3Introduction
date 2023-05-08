@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Loans.Tests
 {
-    [Category("Product Comparison")]
+    [ProductComparison]
     public class ProductComparerShould
     {
         private List<LoanProduct> products;
@@ -86,6 +86,9 @@ namespace Loans.Tests
             Assert.That(comparisons, Has.Exactly(1)
                 .Matches<MonthlyRepaymentComparison>(
                 item => item.ProductName == "a" && item.InterestRate == 1 && item.MonthlyRepayment > 0));
+
+            Assert.That(comparisons, Has.Exactly(1)
+                .Matches(new MonthlyRepaymentGreaterThanZeroConstraint("a", 1)));
         }
     }
 }
